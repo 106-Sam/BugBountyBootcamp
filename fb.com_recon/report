@@ -1,0 +1,7 @@
+This scan was created on Sun May  3 06:02:22 PM EDT 2026 
+
+Results of Nmap:
+
+PORT    STATE SERVICE
+80/tcp  open  http
+443/tcp open  https
