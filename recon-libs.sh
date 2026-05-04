@@ -45,22 +45,22 @@ do
                 crt_scan
         esac
 
-        echo -e "Generating recon report for $DOMAIN..\n"
+        echo -e "Generating recon report for $DOMAIN.."
         TODAY=$(date)
-        echo -e "This scan was created on $TODAY \n" > $DIRECTORY/report
+        echo -e "This scan was created on $TODAY" > $DIRECTORY/report
 
         if [ -f $DIRECTORY/nmap ]; then
-                echo -e "Results of Nmap:\n" >> $DIRECTORY/report
+                echo -e "Results of Nmap:" >> $DIRECTORY/report
                 grep -E "^\S+\s+\S+\s+\S*$" $DIRECTORY/nmap >> $DIRECTORY/report
         fi
 
         if [ -f $DIRECTORY/dirsearch ]; then
-                echo -e "Results of Dirsearch:\n" >> $DIRECTORY/report
+                echo -e "Results of Dirsearch:" >> $DIRECTORY/report
                 cat $DIRECTORY/dirsearch >> $DIRECTORY/report
         fi
 
         if [ -f $DIRECTORY/crt ]; then
-                echo -e "Results of Cert Parsing:\n" >> $DIRECTORY/report
+                echo -e "Results of Cert Parsing:" >> $DIRECTORY/report
                 jq -r ".[] | .name_value" $DIRECTORY/crt >> $DIRECTORY/report 
         fi
 done
