@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#Author: 106_sam
+
+nmap_scan(){
+        nmap $DOMAIN > $DIRECTORY/nmap
+        echo "Saved the Nmap results: $DIRECTORY/nmap.\n"
+}
+
+dirsearch_scan(){
+        source $PATH_TO_DIRSEARCH/venv/bin/activate
+        python3 $PATH_TO_DIRSEARCH/dirsearch.py -u $DOMAIN -e php -o $DIRECTORY/dirsearch
+        echo "Saved the Dirsearch results: $DIRECTORY/dirsearch.\n"
+        deactivate
+}
+
+crt_scan(){
+        curl -o $DIRECTORY/crt "https://crt.sh/?q=$DOMAIN&output=json"
+        echo -e "Saved the cert parsing results: $DIRECTORY/crt.\n"
+}
