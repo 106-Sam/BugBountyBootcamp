@@ -1,0 +1,19 @@
+<html>
+	<h1>Welcome to Acube Security</h1>
+	<h3> This is a cybersecurity newsletter that focuses on bug bounty news and write-ups. Please subscribe to my newsletter below to receive new cybersecurity articles to your email inbox. </h3>
+	<form id="subscribeForm">
+		<label for="email">Email:</label><br>
+		<input type="text" id="email" value="Please enter your email"> 
+		<br><br>
+		<input type="submit" value="submit">
+	</form>
+
+	<script>
+document.getElementById("subscribeForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const url = `./subscribe.html?email=${email}`;  // NO encodeURIComponent()!
+    window.location.href = url;
+});
+</script>
+</html>

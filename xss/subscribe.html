@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Subscription Confirmed</title></head>
+<body>
+<script>
+    // Simulates vulnerable server insertion (raw input into HTML)
+    const urlParams = new URLSearchParams(window.location.search);
+    const email = urlParams.get('email') || 'vickie@gmail.com';
+    document.write(`<p>Thanks! You have subscribed <b>${email}</b> to the newsletter.</p>`);
+    document.write('<a href="./index1.html">Back</a>');
+</script>
+</body>
+</html>
